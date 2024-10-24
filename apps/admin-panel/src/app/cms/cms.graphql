@@ -1,0 +1,35 @@
+query Notifications {
+  complaintAggregate(
+    filter: { status: { in: [UnderInvestigation, Submitted] } }
+  ) {
+    count {
+      id
+    }
+  }
+  distressSignalAggregate(
+    filter: { status: { in: [UnderReview, Submitted] } }
+  ) {
+    count {
+      id
+    }
+  }
+  driverAggregate(filter: { status: { in: [PendingApproval] } }) {
+    count {
+      id
+    }
+  }
+}
+
+subscription SOSSubscription {
+  sosCreated {
+    id
+    status
+  }
+}
+
+subscription ComplaintSubscription {
+  complaintCreated {
+    id
+    status
+  }
+}

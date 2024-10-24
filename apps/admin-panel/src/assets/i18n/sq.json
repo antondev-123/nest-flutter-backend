@@ -1,0 +1,438 @@
+{
+	"enum": {
+		"request": {
+			"Requested": "Duke kërkuar",
+			"NotFound": "Nuk u gjet",
+			"NoCloseFound": "Nuk u gjet asnjë shofer afër",
+			"Found": "U gjet",
+			"DriverAccepted": "Shoferi ka pranuar",
+			"Arrived": "Shoferi ka arritur",
+			"WaitingForPrePay": "Duke pritur për parapagesë",
+			"DriverCanceled": "Anuluar nga shoferi",
+			"RiderCanceled": "Anular nga klienti",
+			"Started": "Udhëtimi ka filluar",
+			"WaitingForPostPay": "Duke pritur pagesën",
+			"WaitingForReview": "Duke pritur vlerësimin",
+			"Finished": "Përfunduar",
+			"Booked": "Rezervuar",
+			"Expired": "Skaduar"
+		},
+		"transactionType": {
+			"OrderFee": "Tarifa e porosisë",
+			"Cash": "Cash",
+			"BankTransfer": "Transfertë bankare",
+			"Gift": "Dhuratë",
+			"Commission": "Komision",
+			"Correction": "Korrigjim",
+			"InAppPayment": "Pagesë në App",
+			"Withdraw": "Tërheqje"
+		},
+		"transactionStatus": {
+			"Processing": "Duke përpunuar",
+			"Done": "Përfunduar",
+			"Canceled": "Anuluar",
+			"Rejected": "Refuzuar"
+		},
+		"gender": {
+			"male": "Mashkull",
+			"female": "Femër",
+			"genderless": "I pa deklaruar"
+		},
+		"complaintStatus": {
+			"submitted": "Dorëzuar",
+			"underInvestigation": "Duke investiguar",
+			"resolved": "Zgjidhur"
+		},
+		"sosStatus": {
+			"submitted": "Dorëzuar",
+			"underReview": "Duke vlerësuar",
+			"falseAlarm": "Alarm i rremë",
+			"resolved": "Zgjidhur"
+		},
+		"driver": {
+			"status": {
+				"pendingApproval": "Në pritje për miratim",
+				"approved": "Aprovuar",
+				"blocked": "Bllokuar",
+				"softReject": "Refuzim i butë",
+				"hardReject": "Refuzim i fortë",
+				"offline": "Jashtë pune",
+				"waitingDocuments": "Në pritje për miratim",
+				"inService": "Në shërbim",
+				"online": "Në linjë"
+			}
+		},
+		"rider": {
+			"status": {
+				"blocked": "Bllokuar",
+				"enabled": "Aktivizuar"
+			}
+		},
+		"sosActivityAction": {
+			"submitted": "Dorëzuar",
+			"seen": "Shikuar",
+			"contactDriver": "Shoferi është kontaktuar",
+			"contactAuthorities": "Autoritet janë njoftuar",
+			"markedAsResolved": "Shënuar si e zgjidhur",
+			"markedAsFalseAlarm": "Shënuar si alarm falso"
+		}
+	},
+	"branding": {
+		"menu": {
+			"header": "UPsTAXI"
+		},
+		"footer": {
+			"address": "https://upstaxi.com/",
+			"prefix": "© 2015-2024",
+			"title": "UPsTAXI",
+			"suffix": "Të gjitha të drejtat të rezervuara"
+		},
+		"page": {
+			"title": "UPsTAXI Paneli i Administratorit"
+		}
+	},
+	"menu": {
+		"home": {
+			"overview": "Pasqyra përgjithshme",
+			"dispatcher": "Dispeceria",
+			"header": "Faqja kryesore"
+		},
+		"driver": {
+			"pendingVerification": "Verifimi në pritje",
+			"all": "Shiko të gjithë",
+			"header": "Shoferët"
+		},
+		"marketing": {
+			"coupons": "Kuponat",
+			"announcements": "Publikime",
+			"header": "Marketing",
+			"rewards": "Shpërblime & Referime"
+		},
+		"accounting": {
+			"admin": "Administratori",
+			"fleets": "Flotat",
+			"drivers": "Shoferët",
+			"riders": "Klientët",
+			"header": "Kontabiliteti"
+		},
+		"riders": "Klientët",
+		"requests": "Porositë",
+		"sos": "SOS",
+		"complaints": "Ankesat",
+		"management": {
+			"regions": "Rajonet",
+			"services": "Shërbimet",
+			"serviceOptions": "Opsionet e shërbimeve",
+			"fleets": "Flotat",
+			"zonePrices": "Cmimet e Zonave",
+			"reviewParameters": "Parametrat e vlerësimeve",
+			"cars": "Makinat",
+			"userRoles": "Rolet e përdoruesit",
+			"users": "Përdoruesit",
+			"paymentGateways": "Menyrat e pagesave",
+			"settings": "Cilësimet",
+			"header": "Menaxhimi"
+		},
+		"drivers": {
+			"header": "Shoferët",
+			"subtitle": "Lista e gjithë shoferëve të regjistruar"
+		}
+	},
+	"overview": {
+		"switch": {
+			"language": "Ndrysho gjuhën",
+			"darkMode": "Ndrysho modalitetin dritë/errësirë"
+		},
+		"notification": {
+			"title": "Qendra e njoftimeve"
+		},
+		"logout": "Dalje",
+		"driversOnline": "Shoferë ne linjë",
+		"autoZoom": "Auto zoom",
+		"viewDriver": "Shiko shoferin",
+		"complaints": {
+			"title": "Ankesat",
+			"suffix": "E pashqyrtuar"
+		},
+		"activeOrders": {
+			"title": "Kërkesa Aktive",
+			"suffix": "Kërkesat"
+		},
+		"pendingDrivers": {
+			"title": "Shoferët pezull",
+			"suffix": "I paverifikuar"
+		},
+		"bookedOrders": {
+			"title": "Kërkesat e rezervuara",
+			"suffix": "Rezervuara"
+		},
+		"chart": {
+			"requestsTitle": "Kërkesat",
+			"revenue": "Të ardhurat",
+			"newDriverRegisters": "Regjistrimet e reja të shoferëve",
+			"newRiderRegisters": "Regjistrimet e reja të klientëve"
+		}
+	},
+	"notification": {
+		"distressSignals": {
+			"suffix": "Sinjalet e shqetësimit në pritje"
+		},
+		"complaints": {
+			"suffix": "Ankesat e pashqyrtuara"
+		},
+		"pendingDrivers": {
+			"suffix": "Shoferët e paverifikuar"
+		}
+	},
+	"requests": {
+		"expectedTime": "Koha e parashikuar",
+		"startTime": "Ora e nisjes",
+		"finishTime": "Ora e përfundimit",
+		"costAfterCoupon": "Kostoja mbas aplikimit të kuponit",
+		"estimatedCost": "Kostoja e parashikuar",
+		"header": "Kërkesa #",
+		"requestTIme": "Koha e kërkesës",
+		"service": "Shërbime",
+		"distance": "Distanca",
+		"duration": "Kohëzgjatja",
+		"chats": "Mesazhet",
+		"complaints": "Ankesat",
+		"assign": "Cakto shoferin"
+	},
+	"profile": {
+		"status": "Statusi",
+		"locations": "Adresat",
+		"view": "Shiko",
+		"requestInfo": "Info e kërkesës",
+		"name": "Emri",
+		"mobileNumber": "Numri i celularit",
+		"registeredOn": "Regjistruar me",
+		"driverInfo": "Info e shoferit",
+		"riderInfo": "Info e klientit",
+		"details": "Detaje",
+		"title": "Titulli",
+		"content": "Përmbajtja",
+		"firstName": "Emri",
+		"lastName": "Mbiemri",
+		"gender": "Gjinia",
+		"email": "E-Mail",
+		"fleet": "Flota",
+		"carModel": "Modeli i makinës",
+		"carColor": "Ngjyra e makinës",
+		"carProductionYear": "Viti i prodhimit të makinës",
+		"carPlateNumber": "Targa e makinës",
+		"accountNumber": "Numri i llogarisë",
+		"bankName": "Emri i bankës",
+		"bankRoutingNumber": "Bank routing number",
+		"bankSwift": "Bank swift",
+		"address": "Adresa",
+		"services": "Shërbimet",
+		"avatarImage": "Imazhi",
+		"upload": "Ngarko",
+		"save": "Ruaj",
+		"dateTime": "Data & Ora",
+		"rating": "Shkalla e vlerësimit",
+		"review": "Vlerësimi",
+		"actions": "Veprimet",
+		"transactionType": "Lloji i transaksionit",
+		"amount": "Shuma",
+		"documentNumber": "Numri i dokumentit",
+		"submit": "Paraqisni",
+		"insertTransaction": "Vendos transaksionin",
+		"cost": "Kosto",
+		"goToList": "Shkoni tek lista",
+		"add": "Shto",
+		"search": "Kërko",
+		"reset": "Rivendos",
+		"export": "Eksporto",
+		"total": "Totali",
+		"currency": "Monedha",
+		"next": "Vazhdo",
+		"select": "Zgjidh",
+		"delete": "Fshij",
+		"phoneNumber": "Numri i telefonit",
+		"financialRecords": "Të dhënat financiare",
+		"saveChanges": "Ruaj ndryshimet",
+		"enabled": "Aktivizuar",
+		"disabled": "C'aktivizuar",
+		"deleteNotice": "Jeni të sigurt që dëshironi t'i fshini këto të dhëna? Ky veprim është i pakthyeshëm",
+		"dangerArea": "Zonë e rrezikshme",
+		"userName": "Emri i përdoruesit",
+		"code": "Kodi",
+		"beneficiary": "Përfituesi",
+		"availabilityTime": "Koha e disponueshmërisë",
+		"appType": "Lloji i App-it",
+		"creditGift": "Kredit dhuratë",
+		"tripFeePercentGift": "Përqindja e tarifës dhuratë së udhëtimit ",
+		"creditCurrency": "Monedha e kredisë",
+		"conditionTripCountsLessThan": "Udhëtimi llogaritet më pak se",
+		"conditionUserNumberFirstDigits": "Numrat e parë të  celularit të përfituesit (lista, me presje)",
+		"subject": "Subjekt",
+		"type": "Lloji",
+		"paymentGateway": "Mënyra e pagesës",
+		"rider": "Klienti",
+		"driver": "Shoferi",
+		"admin": "Admin",
+		"coupon": "Kupon",
+		"activities": "Afati kohor i aktiviteteve",
+		"location": "Adresa",
+		"submittedBy": "Dorëzuar nga"
+	},
+	"complaint": {
+		"inscriptionTime": "Koha e mbishkruar",
+		"content": "Përmbajtja"
+	},
+	"driver": {
+		"profile": {
+			"changeStatus": "Përditëso statusin",
+			"lastSeenAt": "Shikimi i fundit në",
+			"rating": "Shkalla e vlerësimit",
+			"details": "Detajet",
+			"orders": "Kërkesat",
+			"financials": "Të dhënat e kreditit",
+			"reviews": "Vlerësimet",
+			"documents": "Dokumentet"
+		}
+	},
+	"table": {
+		"viewRequest": "Shiko kërkesën",
+		"viewOperator": "Shiko operatorin",
+		"viewGateway": "Shiko mënyrën e pagesës",
+		"min": "Min",
+		"max": "Max",
+		"viewDriver": "Shiko shoferin",
+		"viewFleet": "Shiko flotën",
+		"viewRider": "Shiko klientin",
+		"viewComplaint": "Shiko ankesën"
+	},
+	"drivers": {
+		"notFoundMessage": "Shoferi nuk gjindet!"
+	},
+	"dispatcher": {
+		"removeLastPoint": "Fshi adresën e fundit",
+		"rider": {
+			"title": "Klient",
+			"description": "Zgjidh Klientin për ti plotësuar kërkesën"
+		},
+		"location": {
+			"title": "Adresa",
+			"description": "Nisja & Destinacioni"
+		},
+		"service": {
+			"title": "Shërbimi",
+			"description": "Shërbimi që kërkohet"
+		},
+		"looking": {
+			"title": "Duke kërkuar",
+			"description": "Duke kërkuar për një shofer të përshtatshëm"
+		},
+		"determiningLocation": " Duke përcaktuar vendndodhjen, ju lutem prisni..."
+	},
+	"chart": {
+		"emptyState": "Asgjë pë tu shfaqur."
+	},
+	"message": {
+		"areYouSure": "A jeni të sigurtë?",
+		"deleteDriverConfirmation": {
+			"title": "A jeni të sigurtë që doni të fshini shoferin?",
+			"content": "Fshirja e informacionit të shoferit do ta fshehë shoferin nga lista e drejtuesve dhe profili nuk do të jetë më i aksesueshëm."
+		},
+		"deleteDriverCofirmAlert": "Shoferi u fshi",
+		"driverAssignedSuccessfully": "Shoferi u caktua me sukses",
+		"deleteConfirmation": {
+			"title": "A jeni të sigurtë që doni ta fshini?"
+		},
+		"deleteRiderConfirmation": {
+			"content": "Fshirja e informacionit të klientit do ta fshehë atë nga lista dhe profili nuk do të jetë më i aksesueshëm."
+		},
+		"deleteRiderCofirmAlert": "Klienti u fshi."
+	},
+	"reviewParameters": {
+		"title": "Parametrat e vlerësimit",
+		"subtitle": "Lista e parametrave që klienti mund të japë për eksperiencën e shërbimit"
+	},
+	"services": {
+		"editCategory": "Ndrysho kategorinë",
+		"newCategory": "Kategori e re",
+		"newService": "Shërbim i ri"
+	},
+	"service": {
+		"createFirstNotice": "Krijoni kategorinë e parë të shërbimit për tu shfaqur në Appin e klientit",
+		"Regions": "Rajonet",
+		"timeMultiplierTable": {
+			"startTime": "Koha e fillimit",
+			"endTime": "Koha e mbarimit",
+			"multiplyBy": "Shumëzo me"
+		},
+		"insertRule": "Vendos rregullat",
+		"distanceMultiplierTable": {
+			"distanceFrom": "Distanca nga",
+			"distanceTo": "Distanca deri"
+		},
+		"weekdayMultiplierTable": {
+			"weekday": "Ditë jave"
+		},
+		"dateRangeMultiplierTable": {
+			"dateRange": "Intervali kohor"
+		}
+	},
+	"settings": {
+		"generalSettings": "Cilësimet e përgjithshme"
+	},
+	"users": {
+		"tab": {
+			"details": "Detajet"
+		},
+		"noRole": "Asnjë rol i caktuar"
+	},
+	"zonePrice": {
+		"pickupAreas": "Zona e nisjes",
+		"destinationAres": "Zona e destinacionit"
+	},
+	"zonePrices": {
+		"title": "Çmimet e zonës",
+		"subtitle": "Përcaktoni rajone specifike që anashkalojë çmimin e paracaktuar dhe kanë një çmim specifik për udhëtimin e klientit"
+	},
+	"coupons": {
+		"availabilityTime": "Koha e disponueshme",
+		"description": "Krijoni kuponë që do të përdoren nga klientët për të marrë zbritje në udhëtimet e tyre",
+		"expirationTime": "Koha e skadencës"
+	},
+	"riders": {
+		"notFoundMessage": "Klienti nuk u gjet!",
+		"tab": {
+			"details": "Detajet",
+			"creditrecords": "Të dhënat e krediteve",
+			"orders": "Porositë",
+			"addresses": "Adresat"
+		}
+	},
+	"error": {
+		"PERMISSION_NOT_GRANTED": "Leja nuk është dhënë"
+	},
+	"weekday": {
+		"monday": "Hënë",
+		"tuesday": "Martë",
+		"wednesday": "Mërkurë",
+		"thursday": "Enjte",
+		"friday": "Premte",
+		"saturday": "Shtune",
+		"sunday": "Diele"
+	},
+	"requestActivityType": {
+		"arrivedToDestination": "Mbërriti në destinacion",
+		"arrivedToPickupPoint": "Mbërriti në pikën e marrjes",
+		"bookedByOperator": "Rezervuar nga operatori",
+		"bookedByRider": "Rezervuar nga klienti",
+		"canceledByDriver": "Anuluar nga shoferi",
+		"canceledByOperator": "Anuluar nga operatori",
+		"canceledByRider": "Anuluar nga klienti",
+		"driverAccepted": "Pranuar nga shoferi",
+		"expired": "Skaduar",
+		"paid": "Paguar",
+		"requestedByOperator": "Kërkuar nga operatori",
+		"requestedByRider": "Kërkuar nga klienti",
+		"reviewed": "Shqyrtuar dhe vlerësuar",
+		"started": "Filloi"
+	}
+}

@@ -1,0 +1,66 @@
+{
+  "name": "driver-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/driver-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/driver-api",
+        "main": "apps/driver-api/src/main.ts",
+        "tsConfig": "apps/driver-api/tsconfig.app.json",
+        "assets": ["apps/driver-api/src/assets"],
+        "tsPlugins": [
+          {
+            "name": "@nestjs/graphql/plugin",
+            "options": {
+              "typeFileNameSuffix": [".input.ts", ".dto.ts"]
+            }
+          }
+        ],
+        "generatePackageJson": true,
+        "target": "node",
+        "compiler": "tsc"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/driver-api/src/environments/environment.ts",
+              "with": "apps/driver-api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "driver-api:build",
+        "inspect": true,
+        "port": 9230
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/driver-api/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/driver-api"],
+      "options": {
+        "jestConfig": "apps/driver-api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

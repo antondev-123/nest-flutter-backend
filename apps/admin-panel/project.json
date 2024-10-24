@@ -1,0 +1,102 @@
+{
+  "name": "admin-panel",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/admin-panel/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/admin-panel",
+        "index": "apps/admin-panel/src/index.html",
+        "main": "apps/admin-panel/src/main.ts",
+        "polyfills": "apps/admin-panel/src/polyfills.ts",
+        "tsConfig": "apps/admin-panel/tsconfig.app.json",
+        "aot": true,
+        "assets": [
+          "apps/admin-panel/src/favicon.ico",
+          "apps/admin-panel/src/assets",
+          {
+            "glob": "*.min.css",
+            "input": "node_modules/ng-zorro-antd",
+            "output": "assets/themes/"
+          }
+        ],
+        "styles": [
+          "apps/admin-panel/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "defaultConfiguration": "development",
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "3mb",
+              "maximumError": "5mb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/admin-panel/src/environments/environment.ts",
+              "with": "apps/admin-panel/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "admin-panel:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "admin-panel:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ngx-translate-extract --input src --output src/assets/i18n/{en,es,bn,de,hi,ko,id,sv,ja,pt,ru,ur,zh,fr,ar,hy}.json --clean --format namespaced-json",
+        "cwd": "apps/admin-panel"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/admin-panel/src/**/*.ts",
+          "apps/admin-panel/src/**/*.html"
+        ]
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/admin-panel"
+      ],
+      "options": {
+        "jestConfig": "apps/admin-panel/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

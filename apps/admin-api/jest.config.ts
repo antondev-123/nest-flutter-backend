@@ -1,0 +1,17 @@
+/* eslint-disable */
+export default {
+  displayName: 'admin-api',
+
+  globals: {},
+  transform: {
+    '^.+\\.[tj]s$': [
+      'ts-jest',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+      },
+    ],
+  },
+  moduleFileExtensions: ['ts', 'js', 'html'],
+  coverageDirectory: '../../coverage/apps/admin-api',
+  preset: '../../jest.preset.js',
+};

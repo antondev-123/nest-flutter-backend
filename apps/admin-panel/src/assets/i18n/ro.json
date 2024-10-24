@@ -1,0 +1,441 @@
+{
+  "enum": {
+    "request": {
+      "Requested": "Solicitat",
+      "NotFound": "Nu a fost găsit",
+      "NoCloseFound": "Închidere nu a fost găsită",
+      "Found": "Găsite",
+      "DriverAccepted": "Sofer acceptat",
+      "Arrived": "A sosit",
+      "WaitingForPrePay": "În așteptarea plății anticipate",
+      "DriverCanceled": "Șofer anulat",
+      "RiderCanceled": "Călăreț anulat",
+      "Started": "A început",
+      "WaitingForPostPay": "În așteptarea plății ulterioare",
+      "WaitingForReview": "In asteptarea revizuirii",
+      "Finished": "Terminat",
+      "Booked": "Rezervat",
+      "Expired": "Expirat"
+    },
+    "transactionType": {
+      "OrderFee": "Taxa de comanda",
+      "Cash": "Bani gheata",
+      "BankTransfer": "Transfer bancar",
+      "Gift": "Cadou",
+      "Commission": "Comision",
+      "Correction": "Corecţie",
+      "InAppPayment": "Plata în aplicație",
+      "Withdraw": "Retrage"
+    },
+    "transactionStatus": {
+      "Processing": "Prelucrare",
+      "Done": "Terminat",
+      "Canceled": "Anulat",
+      "Rejected": "Respins"
+    },
+    "gender": {
+      "male": "Masculin",
+      "female": "Femeie",
+      "genderless": "Fără gen"
+    },
+    "complaintStatus": {
+      "submitted": "Trimis",
+      "underInvestigation": "Sub investigatie",
+      "resolved": "Rezolvat"
+    },
+    "sosStatus": {
+      "submitted": "Trimis",
+      "underReview": "În curs de revizuire",
+      "falseAlarm": "alertă falsă",
+      "resolved": "Rezolvat"
+    },
+    "driver": {
+      "status": {
+        "pendingApproval": "Aprobare in asteptare",
+        "approved": "Aprobat",
+        "blocked": "Blocat",
+        "softReject": "Respingere moale",
+        "hardReject": "Respingere greu",
+        "offline": "Deconectat",
+        "waitingDocuments": "În așteptarea trimiterii",
+        "inService": "În funcțiune",
+        "online": "Pe net"
+      }
+    },
+    "rider": {
+      "status": {
+        "blocked": "Blocat",
+        "enabled": "Activat"
+      }
+    },
+    "sosActivityAction": {
+      "submitted": "Trimis",
+      "seen": "Văzut",
+      "contactDriver": "A contactat șoferul",
+      "contactAuthorities": "Autoritățile contactate",
+      "markedAsResolved": "Marcat ca Rezolvat",
+      "markedAsFalseAlarm": "Marcat ca alarmă falsă"
+    }
+  },
+  "branding": {
+    "menu": {
+      "header": "Plimbări"
+    },
+    "footer": {
+      "address": "https://upstaxi.com/",
+      "prefix": "© 2015-2024",
+      "title": "UPsTAXI",
+      "suffix": "Toate drepturile rezervate."
+    },
+    "page": {
+      "title": "Panoul de administrare UPsTAXI"
+    }
+  },
+  "menu": {
+    "home": {
+      "overview": "Prezentare generală",
+      "dispatcher": "Dispecer",
+      "header": "Acasă"
+    },
+    "driver": {
+      "pendingVerification": "Verificare in Asteptare",
+      "all": "A vedea tot",
+      "header": "Șoferii"
+    },
+    "marketing": {
+      "coupons": "Cupoane",
+      "announcements": "Anunturi",
+      "header": "Marketing",
+      "rewards": "Recompense și recomandări"
+    },
+    "accounting": {
+      "admin": "Admin",
+      "fleets": "Flote",
+      "drivers": "Șoferii",
+      "riders": "Călăreți",
+      "header": "Contabilitate"
+    },
+    "riders": "Călăreți",
+    "requests": "Cereri",
+    "sos": "SOS",
+    "complaints": "Reclamații",
+    "management": {
+      "regions": "Regiuni",
+      "services": "Servicii",
+      "serviceOptions": "Opțiuni de service",
+      "fleets": "Flote",
+      "zonePrices": "Preturi de zona",
+      "reviewParameters": "Revizuirea parametrilor",
+      "cars": "Mașini",
+      "userRoles": "Roluri de utilizator",
+      "users": "Utilizatori",
+      "paymentGateways": "Gateway-uri de plată",
+      "settings": "Setări",
+      "header": "management"
+    },
+    "drivers": {
+      "header": "Șoferii",
+      "subtitle": "Lista tuturor șoferilor înregistrați."
+    }
+  },
+  "overview": {
+    "switch": {
+      "language": "Schimbați limba",
+      "darkMode": "Comutați modul lumină/întuneric"
+    },
+    "notification": {
+      "title": "Centru de notificari"
+    },
+    "logout": "Deconectare",
+    "driversOnline": "Șoferi online",
+    "autoZoom": "AutoZoom",
+    "viewDriver": "Vizualizați driverul",
+    "complaints": {
+      "title": "Reclamații",
+      "suffix": "Nerevizuit"
+    },
+    "activeOrders": {
+      "title": "Comenzi active",
+      "suffix": "Comenzi"
+    },
+    "pendingDrivers": {
+      "title": "Șoferi în așteptare",
+      "suffix": "Neverificat"
+    },
+    "bookedOrders": {
+      "title": "Comenzi rezervate",
+      "suffix": "Rezervat"
+    },
+    "chart": {
+      "requestsTitle": "Comenzi",
+      "revenue": "Venituri",
+      "newDriverRegisters": "Înregistrări de șoferi noi",
+      "newRiderRegisters": "Înregistrări noi de călăreți"
+    }
+  },
+  "notification": {
+    "distressSignals": {
+      "suffix": "Semnale de primejdie în așteptare"
+    },
+    "complaints": {
+      "suffix": "Reclamații nerevizuite"
+    },
+    "pendingDrivers": {
+      "suffix": "Șoferii neverificați"
+    }
+  },
+  "requests": {
+    "expectedTime": "Timp așteptat",
+    "startTime": "Timpul de începere",
+    "finishTime": "Timp de sosire",
+    "costAfterCoupon": "Cost după cupon",
+    "estimatedCost": "Cost estimat",
+    "header": "Cerere #",
+    "requestTIme": "Solicitați Ora",
+    "service": "Serviciu",
+    "distance": "Distanţă",
+    "duration": "Durată",
+    "chats": "Chat-uri",
+    "complaints": "Reclamații",
+    "assign": "Atribuiți driverul (Alpha)"
+  },
+  "profile": {
+    "status": "stare",
+    "locations": "Locații",
+    "view": "Vedere",
+    "requestInfo": "Solicitați informații",
+    "name": "Nume",
+    "mobileNumber": "Număr de telefon mobil",
+    "registeredOn": "Înregistrat pe",
+    "driverInfo": "Informații șofer",
+    "riderInfo": "Informații Rider",
+    "details": "Detalii",
+    "title": "Titlu",
+    "content": "Conţinut",
+    "firstName": "Nume",
+    "lastName": "Nume",
+    "gender": "Gen",
+    "email": "E-mail",
+    "fleet": "Flota",
+    "carModel": "Model de mașină",
+    "carColor": "Culoare mașină",
+    "carProductionYear": "Anul producției auto",
+    "carPlateNumber": "Numărul plăcuței mașinii",
+    "accountNumber": "Numărul de cont",
+    "bankName": "Numele băncii",
+    "bankRoutingNumber": "Număr de rutare bancară",
+    "bankSwift": "Bank Swift",
+    "address": "Abordare",
+    "services": "Servicii",
+    "avatarImage": "Imagine de avatar",
+    "upload": "Încărcați",
+    "save": "Salvați",
+    "dateTime": "Data și ora",
+    "rating": "Evaluare",
+    "review": "Revizuire",
+    "actions": "Acțiuni",
+    "transactionType": "tipul tranzacției",
+    "amount": "Cantitate",
+    "documentNumber": "numarul documentului",
+    "submit": "Trimite",
+    "insertTransaction": "Inserați tranzacție",
+    "cost": "Cost",
+    "goToList": "Accesați Lista",
+    "add": "Adăuga",
+    "search": "Căutare",
+    "reset": "Resetați",
+    "export": "Export",
+    "total": "Total",
+    "currency": "Valută",
+    "next": "Următorul",
+    "select": "Selectați",
+    "delete": "Șterge",
+    "phoneNumber": "Număr de telefon",
+    "financialRecords": "Record financiar",
+    "saveChanges": "Salvează modificările",
+    "enabled": "Activat",
+    "disabled": "Dezactivat",
+    "deleteNotice": "Sigur doriți să ștergeți aceste date? Această acțiune este ireversibilă",
+    "dangerArea": "Zona Periculoasa",
+    "userName": "Nume de utilizator",
+    "code": "Cod",
+    "beneficiary": "Beneficiar",
+    "availabilityTime": "Timp de disponibilitate",
+    "appType": "Tip aplicație",
+    "creditGift": "Cadou de credit",
+    "tripFeePercentGift": "Cadou procentual pentru taxa de călătorie",
+    "creditCurrency": "Moneda de credit",
+    "conditionTripCountsLessThan": "Călătoria contează mai puțin decât",
+    "conditionUserNumberFirstDigits": "Numerele de mobil ale beneficiarului primele cifre (listă, separate prin virgulă)",
+    "subject": "Subiect",
+    "type": "Tip",
+    "paymentGateway": "Gateway de plată",
+    "rider": "Călăreț",
+    "driver": "Conducător auto",
+    "admin": "Admin",
+    "coupon": "Cupon",
+    "activities": "Cronologia activităților",
+    "location": "Locație",
+    "submittedBy": "Trimis de",
+    "userAgent": "Agent utilizator",
+    "loginTimestamp": "Data și ora de conectare",
+    "logoutTimestamp": "Data și ora de deconectare"
+  },
+  "complaint": {
+    "inscriptionTime": "Timpul de inscriere",
+    "content": "Conţinut"
+  },
+  "driver": {
+    "profile": {
+      "changeStatus": "Starea de actualizare",
+      "lastSeenAt": "Ultima dată văzut la",
+      "rating": "Evaluare",
+      "details": "Detalii",
+      "orders": "Comenzi",
+      "financials": "Înregistrări de credit",
+      "reviews": "Recenzii",
+      "documents": "Documente"
+    }
+  },
+  "table": {
+    "viewRequest": "Vizualizați cererea",
+    "viewOperator": "Vizualizare operator",
+    "viewGateway": "Vedeți Gateway",
+    "min": "Min",
+    "max": "Max",
+    "viewDriver": "Vizualizați driverul",
+    "viewFleet": "Vedeți flota",
+    "viewRider": "Vizualizare Rider",
+    "viewComplaint": "Vezi reclamația"
+  },
+  "drivers": {
+    "notFoundMessage": "Driverul nu a fost găsit!"
+  },
+  "dispatcher": {
+    "removeLastPoint": "Eliminați ultimul punct",
+    "rider": {
+      "title": "Călăreț",
+      "description": "Selectați călărețul pentru a atribui cererea"
+    },
+    "location": {
+      "title": "Locație",
+      "description": "Locații de preluare și predare"
+    },
+    "service": {
+      "title": "Serviciu",
+      "description": "Serviciu de solicitat"
+    },
+    "looking": {
+      "title": "In cautarea",
+      "description": "Se caută șofer eligibil"
+    },
+    "determiningLocation": "Se determină locația, așteptați..."
+  },
+  "chart": {
+    "emptyState": "Nimic de văzut aici."
+  },
+  "message": {
+    "areYouSure": "Esti sigur?",
+    "deleteDriverConfirmation": {
+      "title": "Sigur doriți să ștergeți driverul?",
+      "content": "Ștergerea informațiilor despre șofer va ascunde șoferul din lista de șoferi, iar profilul nu va mai fi accesibil."
+    },
+    "deleteDriverCofirmAlert": "Driverul a fost șters",
+    "driverAssignedSuccessfully": "Driverul este alocat cu succes",
+    "deleteConfirmation": {
+      "title": "Ești sigur că vrei să ștergi?"
+    },
+    "deleteRiderConfirmation": {
+      "content": "Ștergerea informațiilor despre călăreț îl va ascunde din lista de călăreți, iar profilul nu va mai fi accesibil."
+    },
+    "deleteRiderCofirmAlert": "Rider a fost șters."
+  },
+  "reviewParameters": {
+    "title": "Revizuirea parametrilor",
+    "subtitle": "Lista parametrilor pe care pilotul îi poate atribui experienței de service"
+  },
+  "services": {
+    "editCategory": "Editați categoria",
+    "newCategory": "Categorie noua",
+    "newService": "Serviciu nou"
+  },
+  "service": {
+    "createFirstNotice": "Creați prima categorie de servicii care să fie afișată în aplicațiile client",
+    "Regions": "Regiuni",
+    "timeMultiplierTable": {
+      "startTime": "Timpul de începere",
+      "endTime": "Sfârșitul timpului",
+      "multiplyBy": "Înmulțit cu"
+    },
+    "insertRule": "Inserați o regulă",
+    "distanceMultiplierTable": {
+      "distanceFrom": "Distanta de la",
+      "distanceTo": "Distanța până la"
+    },
+    "weekdayMultiplierTable": {
+      "weekday": "Ziua săptămânii"
+    },
+    "dateRangeMultiplierTable": {
+      "dateRange": "Interval de date"
+    }
+  },
+  "settings": {
+    "generalSettings": "setari generale"
+  },
+  "users": {
+    "tab": {
+      "details": "Detalii"
+    },
+    "noRole": "Niciun rol atribuit"
+  },
+  "zonePrice": {
+    "pickupAreas": "Zona(e) de preluare",
+    "destinationAres": "Zona (zonele) de destinație"
+  },
+  "zonePrices": {
+    "title": "Preturi de zona",
+    "subtitle": "Definiți anumite regiuni care înlocuiesc prețul implicit și au un preț specific pentru călătoria clientului"
+  },
+  "coupons": {
+    "availabilityTime": "Timp de disponibilitate",
+    "description": "Creați cupoane pentru a fi folosite de călăreți pentru a obține reduceri la cursele lor",
+    "expirationTime": "Data expirarii"
+  },
+  "riders": {
+    "notFoundMessage": "Călărețul nu a fost găsit!",
+    "tab": {
+      "details": "Detalii",
+      "creditrecords": "Înregistrări de credit",
+      "orders": "Comenzi",
+      "addresses": "Adrese"
+    }
+  },
+  "error": {
+    "PERMISSION_NOT_GRANTED": "Permisiunea nu a fost acordată"
+  },
+  "weekday": {
+    "monday": "luni",
+    "tuesday": "marţi",
+    "wednesday": "miercuri",
+    "thursday": "joi",
+    "friday": "vineri",
+    "saturday": "sâmbătă",
+    "sunday": "duminică"
+  },
+  "requestActivityType": {
+    "arrivedToDestination": "Ajuns La Destinație",
+    "arrivedToPickupPoint": "A ajuns la punctul de preluare",
+    "bookedByOperator": "Rezervați după operator",
+    "bookedByRider": "Rezervat de călăreț",
+    "canceledByDriver": "Anulat de șofer",
+    "canceledByOperator": "Anulat de către operator",
+    "canceledByRider": "Anulat de călăreț",
+    "driverAccepted": "Sofer acceptat",
+    "expired": "Expirat",
+    "paid": "Plătit",
+    "requestedByOperator": "Solicitat de operator",
+    "requestedByRider": "Solicitat de Rider",
+    "reviewed": "Revizuit și evaluat",
+    "started": "A început"
+  }
+}

@@ -1,0 +1,85 @@
+fragment DriverOverviewInfo on Driver {
+  id
+  firstName
+  lastName
+  mobileNumber
+  status
+}
+fragment DriverLocation on OnlineDriver {
+  location {
+    lat
+    lng
+  }
+  driverId
+  lastUpdatedAt
+}
+query Overview {
+  complaintAggregate(
+    filter: { status: { in: [Submitted, UnderInvestigation] } }
+  ) {
+    count {
+      id
+    }
+  }
+  driverAggregate(filter: { status: { eq: PendingApproval } }) {
+    count {
+      id
+    }
+  }
+  activeOrders: orderAggregate(
+    filter: {
+      status: { in: [DriverAccepted, Arrived, Started, WaitingForPostPay] }
+    }
+  ) {
+    count {
+      id
+    }
+  }
+  bookedOrders: orderAggregate(filter: { status: { eq: Booked } }) {
+    count {
+      id
+    }
+  }
+  getDriversLocation(center: { lat: 45, lng: 45 }, count: 150) {
+    ...DriverLocation
+  }
+}
+
+query OverviewDriverPaging($ids: [ID!]!) {
+  drivers(filter: { id: { in: $ids } }) {
+    nodes {
+      ...DriverOverviewInfo
+    }
+    totalCount
+  }
+}
+
+query RequestsChart($timeframe: ChartTimeframe!) {
+  requestChart(timeframe: $timeframe) {
+    time
+    count
+    status
+  }
+}
+
+query IncomeChart($timeframe: ChartTimeframe!) {
+  incomeChart(timeframe: $timeframe) {
+    time
+    sum
+    currency
+  }
+}
+
+query DriverRegistrations($timeframe: ChartTimeframe!) {
+  driverRegistrations(timeframe: $timeframe) {
+    time
+    count
+  }
+}
+
+query RiderRegistrations($timeframe: ChartTimeframe!) {
+  riderRegistrations(timeframe: $timeframe) {
+    time
+    count
+  }
+}

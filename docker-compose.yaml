@@ -1,0 +1,133 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0.22
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysqlvol:/var/lib/mysql
+      - ./backup:/var/backup
+    environment:
+      MYSQL_ROOT_PASSWORD: defaultpassword
+    ports:
+      - "3309:3306"
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    links:
+      - mysql
+    environment:
+      MYSQL_USERNAME: 'root'
+      MYSQL_ROOT_PASSWORD: 'defaultpassword'
+      PMA_HOST: mysql
+      PMA_PORT: 3309
+      PMA_ARBITRARY: 1
+    ports:
+      - 8080:80
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisvol:/data
+
+  email-api:
+    build:
+      context: ./apps/email-api
+      dockerfile: Dockerfile
+    environment:
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./apps/email-api:/usr/src/app
+
+  taxi-admin-api:
+    build:
+      context: .
+      dockerfile: apps/admin-api/Dockerfile
+    restart: always
+    depends_on:
+      - "mysql"
+      - "redis"
+    links:
+      - mysql
+    volumes:
+      - ./img:/app/uploads
+      - ./config:/app/config
+    environment:
+      - MYSQL_HOST=mysql
+      - REDIS_HOST=redis
+    ports:
+      - "4001:3000"
+
+  taxi-admin-panel:
+    build:
+      context: .
+      dockerfile: apps/admin-panel/Dockerfile
+    restart: always
+    volumes:
+       - taxiassets:/usr/share/nginx/html/assets
+    ports:
+      - "4003:80"
+
+  taxi-rider-api:
+    build:
+      context: .
+      dockerfile: apps/rider-api/Dockerfile
+    restart: always
+    depends_on:
+      - "mysql"
+      - "redis"
+      - "taxi-admin-api"
+    volumes:
+      - ./img:/app/uploads
+      - ./config:/app/config
+    environment:
+      - MYSQL_HOST=mysql
+      - GATEWAY_SERVER_URL=http://127.0.0.1:3333
+      - RIDER_SERVER_URL=http://127.0.0.1:4000
+      - ENCRYPTION_KEY=lPw3ethAy4WqnWa3b4TAbCUJr89RifEs
+      - REDIS_HOST=redis
+    ports:
+      - "4000:3000"
+
+  taxi-driver-api:
+    build:
+      context: .
+      dockerfile: apps/driver-api/Dockerfile
+    restart: always
+    depends_on:
+      - "mysql"
+      - "redis"
+      - "taxi-admin-api"
+    volumes:
+      - ./img:/app/uploads
+      - ./config:/app/config
+    environment:
+      - MYSQL_HOST=mysql
+      - GATEWAY_SERVER_URL=http://127.0.0.1:3333
+      - DRIVER_SERVER_URL=http://127.0.0.1:4002
+      - REDIS_HOST=redis
+      - ENCRYPTION_KEY=lPw3ethAy4WqnWa3b4TAbCUJr89RifEs
+      - DRIVERS_ALWAYS_ON=1
+    ports:
+      - "4002:3000"
+
+  payment-gateways:
+    image: ridyio/delivery-gateway-box
+    depends_on:
+      - "taxi-rider-api"
+    ports:
+      - "3333:3333"
+    environment:
+      - MYSQL_HOST=mysql
+      - TEST_MODE=true
+      - MYSQL_DB=ridy
+      - GATEWAY_SERVER_URL=http://0.0.0.0:3333
+      - ENCRYPTION_KEY=lPw3ethAy4WqnWa3b4TAbCUJr89RifEs
+
+volumes:
+  redisvol:
+  mysqlvol:
+  taxiassets:

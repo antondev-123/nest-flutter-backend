@@ -1,0 +1,81 @@
+<form nz-form [formGroup]="form" nzLayout="vertical" (ngSubmit)="onSubmit()">
+
+  <nz-page-header [nzGhost]="false" nzBackIcon nzTitle="{{'menu.management.paymentGateways' | translate}}"
+    nzSubtitle="API keys and client facing definitions.">
+    <nz-page-header-extra>
+      <button nz-button nzType="primary" [disabled]="form.invalid" type="submit">
+        {{ 'profile.saveChanges' | translate }}
+      </button>
+    </nz-page-header-extra>
+    <nz-page-header-content>
+      <input formControlName="id" type="hidden" hidden>
+      <div class="lg:grid lg:grid-cols-4 lg:gap-2">
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="title">Title</nz-form-label>
+          <nz-form-control>
+            <input nz-input required id="title" formControlName="title">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="type">Type</nz-form-label>
+          <nz-form-control>
+            <nz-select formControlName="type" id="type">
+              <nz-option *ngFor="let type of gatewayTypes" [nzValue]="type" [nzLabel]="type"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzRequired nzFor="enabled">Visibility</nz-form-label>
+          <nz-form-control>
+            <label nz-checkbox required id="enabled" formControlName="enabled">Is Enabled?</label>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <h3 class="my-2 text-sm">API Keys</h3>
+      <div class="lg:grid lg:grid-cols-4 lg:gap-2"
+        *ngIf="getPaymentGatewayAPIRequirements(form.value.type) as apiKeyObject">
+        <nz-form-item *ngIf="apiKeyObject.publicKey != null">
+          <nz-form-label nzRequired nzFor="publicKey">{{apiKeyObject.publicKey}}</nz-form-label>
+          <nz-form-control>
+            <input required nz-input formControlName="publicKey" id="publicKey">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item *ngIf="apiKeyObject.privateKey != null">
+          <nz-form-label nzRequired nzFor="privateKey">{{apiKeyObject.privateKey}}</nz-form-label>
+          <nz-form-control>
+            <input nz-input required formControlName="privateKey" id="privateKey">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item *ngIf="apiKeyObject.merchantId != null">
+          <nz-form-label nzRequired nzFor="merchantId">{{apiKeyObject.merchantId}}</nz-form-label>
+          <nz-form-control>
+            <input nz-input required formControlName="merchantId" id="merchantId">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item *ngIf="apiKeyObject.saltKey != null">
+          <nz-form-label nzRequired nzFor="saltKey">{{apiKeyObject.saltKey}}</nz-form-label>
+          <nz-form-control>
+            <input nz-input required formControlName="saltKey" id="saltKey">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <nz-form-item>
+        <nz-form-label nzRequired>Image</nz-form-label>
+        <nz-form-control>
+          <nz-upload [nzAction]="root + 'upload'" [nzHeaders]="{Authorization: 'Bearer ' + jwt}"
+            (nzChange)="handleUploadChange($event)" [nzBeforeUpload]="beforeUpload" nzListType="picture-card"
+            [nzShowUploadList]="false">
+            <ng-container *ngIf="!avatarUrl">
+              <i class="upload-icon" nz-icon [nzType]="loadingUpload ? 'loading' : 'plus'"></i>
+              <div class="ant-upload-text">{{ 'profile.upload' | translate }}</div>
+            </ng-container>
+            <img *ngIf="avatarUrl" [src]="root + avatarUrl" style="width: 100%" />
+          </nz-upload>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-page-header-content>
+    <button nz-button nzType="primary" class="float-right" type="submit" [disabled]="form.invalid">{{ 'profile.submit' |
+      translate
+      }}</button>
+  </nz-page-header>
+</form>

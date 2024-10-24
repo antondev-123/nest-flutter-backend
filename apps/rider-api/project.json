@@ -1,0 +1,66 @@
+{
+  "name": "rider-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/rider-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/rider-api",
+        "main": "apps/rider-api/src/main.ts",
+        "tsConfig": "apps/rider-api/tsconfig.app.json",
+        "assets": ["apps/rider-api/src/assets"],
+        "tsPlugins": [
+          {
+            "name": "@nestjs/graphql/plugin",
+            "options": {
+              "typeFileNameSuffix": [".input.ts", ".dto.ts"]
+            }
+          }
+        ],
+        "generatePackageJson": true,
+        "target": "node",
+        "compiler": "tsc"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/rider-api/src/environments/environment.ts",
+              "with": "apps/rider-api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "rider-api:build",
+        "inspect": true,
+        "port": 9231
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/rider-api/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/rider-api"],
+      "options": {
+        "jestConfig": "apps/rider-api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

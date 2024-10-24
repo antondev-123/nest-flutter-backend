@@ -1,0 +1,113 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0.22
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysqlvol:/var/lib/mysql
+      - ./backup:/var/backup
+    environment:
+      MYSQL_ROOT_PASSWORD: defaultpassword
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis
+    volumes:
+      - redisvol:/data
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    links:
+      - mysql
+    environment:
+      MYSQL_USERNAME: 'root'
+      MYSQL_ROOT_PASSWORD: 'defaultpassword'
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - 8080:80
+
+  rider:
+    image: w3development/upstaxi-rider
+    restart: always
+    depends_on:
+      - "mysql"
+      - "redis"
+      - "api"
+    volumes:
+      - ./img:/app/uploads
+      - ./config:/app/config
+    environment:
+      - MYSQL_HOST=mysql
+      - GATEWAY_SERVER_URL=http://138.197.176.83:3333
+      - RIDER_SERVER_URL=http://138.197.176.83:4000
+      - ENCRYPTION_KEY=lPw3ethAy4WqnWa3b4TAbCUJr89RifEs
+      - REDIS_HOST=redis
+    ports:
+      - "4000:3000"
+
+  driver:
+    image: w3development/upstaxi-driver
+    restart: always
+    depends_on:
+      - "mysql"
+      - "redis"
+      - "api"
+    volumes:
+      - ./img:/app/uploads
+      - ./config:/app/config
+    environment:
+      - MYSQL_HOST=mysql
+      - GATEWAY_SERVER_URL=http://138.197.176.83:3333
+      - DRIVER_SERVER_URL=http://138.197.176.83:4002
+      - REDIS_HOST=redis
+      - ENCRYPTION_KEY=lPw3ethAy4WqnWa3b4TAbCUJr89RifEs
+      - DRIVERS_ALWAYS_ON=1
+    ports:
+      - "4002:3000"
+
+  api:
+    image: w3development/upstaxi-api
+    restart: always
+    depends_on:
+      - "mysql"
+      - "redis"
+    links:
+      - mysql
+    volumes:
+      - ./img:/app/uploads
+      - ./config:/app/config
+    environment:
+      - MYSQL_HOST=mysql
+      - REDIS_HOST=redis
+    ports:
+      - "4001:3000"
+
+  panel:
+    image: w3development/upstaxi-panel
+    restart: always
+    volumes:
+       - taxiassets:/usr/share/nginx/html/assets
+    ports:
+      - "4003:80"
+
+  payment-gateways:
+    image: ridyio/delivery-gateway-box
+    depends_on:
+      - "rider"
+    ports:
+      - "3333:3333"
+    environment:
+      - MYSQL_HOST=mysql
+      - TEST_MODE=true
+      - MYSQL_DB=ridy
+      - GATEWAY_SERVER_URL=http://138.197.176.83:3333
+      - ENCRYPTION_KEY=lPw3ethAy4WqnWa3b4TAbCUJr89RifEs
+
+volumes:
+  redisvol:
+  mysqlvol:
+  taxiassets:

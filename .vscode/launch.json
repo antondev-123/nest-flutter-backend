@@ -1,0 +1,91 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "driver-api",
+      "port": 9230,
+      "type": "node",
+      "request": "attach"
+    },
+    {
+      "name": "rider-api",
+      "port": 9231,
+      "type": "node",
+      "request": "attach",
+      "cwd": "${workspaceFolder}/dist/apps/rider-api/",
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/dist/apps/rider-api/**/*",
+        "!**/node_modules/**"
+      ],
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceFolder}/apps/rider-api/*"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+        // "${workspaceFolder}/node_modules/**/*.js",
+      ]
+    },
+    {
+      "name": "rider-api_launch",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/dist/apps/rider-api/main.js",
+      "cwd": "${workspaceFolder}/dist/apps/rider-api/",
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/dist/apps/rider-api/**/*",
+        "!**/node_modules/**"
+      ],
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceFolder}/apps/rider-api/*"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+        // "${workspaceFolder}/node_modules/**/*.js",
+      ]
+    },
+    {
+      "name": "admin-api",
+      "port": 9233,
+      "type": "node",
+      "request": "attach",
+
+      "cwd": "${workspaceFolder}/dist/apps/admin-api/",
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/dist/apps/admin-api/**/*",
+        "!**/node_modules/**"
+      ],
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceFolder}/apps/admin-api/*"
+      },
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**/*.js"
+      ]
+    },
+    {
+      "name": "admin-api_launch",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/dist/apps/admin-api/main.js",
+      "cwd": "${workspaceFolder}/dist/apps/admin-api/",
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/dist/apps/admin-api/**/*",
+        "!**/node_modules/**"
+      ],
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceFolder}/apps/admin-api/*"
+      },
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**/*.js"
+      ]
+    },
+    {
+      "name": "admin-panel",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

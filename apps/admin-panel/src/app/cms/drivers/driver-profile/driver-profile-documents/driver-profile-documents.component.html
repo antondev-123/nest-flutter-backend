@@ -1,0 +1,21 @@
+<div style="overflow: auto;" *ngIf="(query | async)?.data?.driver as driver">
+  <nz-upload nzListType="picture-card" [nzFileList]="files" [nzShowButton]="false" [nzPreview]="handlePreview"
+    [nzShowUploadList]="{showRemoveIcon: false, showPreviewIcon: true, showDownloadIcon: true}">
+    <div>
+      <span nz-icon nzType="plus"></span>
+      <div style="margin-top: 8px">Upload</div>
+    </div>
+  </nz-upload>
+  <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
+    (nzOnCancel)="previewVisible = false">
+    <ng-template #modalContent>
+      <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+    </ng-template>
+  </nz-modal>
+</div>
+<!-- <div *ngIf="(query | async)?.data?.driver?.documents as documents">
+  <div *ngFor="let document of documents">
+    <a href="{{root + document.address}}" target="_blank"><img src="{{root + document.address}}"
+        style="width: 90%; margin: 10px;"></a>
+  </div>
+</div> -->

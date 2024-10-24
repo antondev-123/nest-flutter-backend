@@ -1,9 +1,0 @@
-query ServiceOptionsList {
-  serviceOptions {
-    id
-    name
-    icon
-    type
-    additionalFee
-  }
-}
